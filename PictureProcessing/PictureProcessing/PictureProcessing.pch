@@ -1,0 +1,14 @@
+//
+//  PictureProcessing.pch
+//  PictureProcessing
+//
+//  Created by miss on 2017/9/11.
+//  Copyright © 2017年 mukr. All rights reserved.
+//
+
+#ifndef PictureProcessing_pch
+#define PictureProcessing_pch
+
+#import "GPUImage.h"
+
+#endif /* PictureProcessing_pch */
