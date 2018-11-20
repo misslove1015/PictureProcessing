@@ -292,8 +292,7 @@ NSString *const kGPUImageFiveInputTextureVertexShaderString = SHADER_STRING
     {
         rotationToCheck = inputRotation4;
     }
-    else if (textureIndex == 4)
-    {
+    else {
         rotationToCheck = inputRotation5;
     }
     if (GPUImageRotationSwapsWidthAndHeight(rotationToCheck))
