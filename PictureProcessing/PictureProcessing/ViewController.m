@@ -245,7 +245,8 @@
     self.filterView.hidden = YES;
     self.enhanceView.hidden = YES;
     
-    MoveTextField *textField = [[MoveTextField alloc]initWithFrame:CGRectMake(50, 50, SCREEN_WIDTH, 50)];
+    MoveTextField *textField = [[MoveTextField alloc]initWithFrame:CGRectMake(50, 50, SCREEN_WIDTH, 60)];
+    textField.textColor = self.brush.backgroundColor;
     textField.borderStyle = UITextBorderStyleNone;
     textField.font = [UIFont systemFontOfSize:30];
     [textField becomeFirstResponder];
@@ -537,8 +538,6 @@
         enchanceIsSelect[indexPath.item] = YES;
         [self.enhanceCollectionView reloadData];
     }
-    
-    
 }
 
 - (void)addFilter:(NSInteger)index {
@@ -722,7 +721,7 @@
 
 - (NSArray *)brushSizeArray {
     if (!_brushSizeArray) {
-        _brushSizeArray = @[@2, @5, @8, @10, @12, @15, @20, @30];
+        _brushSizeArray = @[@(2), @(5), @(8), @(10), @(12), @(15), @(20), @(30)];
     }
     return _brushSizeArray;
 }

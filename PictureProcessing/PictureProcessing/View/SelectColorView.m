@@ -75,9 +75,14 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self endEditing:YES];
-    
-    UITouch *touch = [touches anyObject];
+    [self getColorWithTouch:[touches anyObject]];
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self getColorWithTouch:[touches anyObject]];
+}
+
+- (void)getColorWithTouch:(UITouch *)touch {
     CGPoint point = [touch locationInView:self.gradientView];
     CGFloat width = (self.frame.size.width-20)/2;
     CGFloat height = self.frame.size.width-20;
@@ -86,10 +91,6 @@
     }
     UIColor *color = [self.gradientView colorOfPoint:point];
     [self updateColor:color];
-}
-
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-
 }
 
 - (IBAction)gridButtonClick:(UIButton *)sender {
