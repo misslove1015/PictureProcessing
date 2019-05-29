@@ -31,3 +31,7 @@
   
   ### 拾色器
   ![](https://github.com/misslove1015/DemoPictures/blob/master/PictureProcessingColor.jpg)
+
+#### 其实平时主要用来做表情包
+![](https://github.com/misslove1015/DemoPictures/blob/master/PictureProcessing.gif)
+
