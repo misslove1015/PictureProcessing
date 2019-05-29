@@ -426,6 +426,7 @@
                         <outlet property="brushSizeTextField" destination="p9V-AP-S6G" id="3AH-fw-SJ9"/>
                         <outlet property="brushView" destination="Buy-zE-KfN" id="Kym-kF-P0A"/>
                         <outlet property="brushWidth" destination="0ql-N7-DKY" id="WmJ-Gd-3Mf"/>
+                        <outlet property="cropButton" destination="gLl-ld-wbE" id="jgi-lX-MQt"/>
                         <outlet property="cropView" destination="cCE-dJ-v4u" id="sFe-fz-vee"/>
                         <outlet property="editView" destination="sO9-gq-pXw" id="q83-I9-RaI"/>
                         <outlet property="enhanceView" destination="phK-ht-kiY" id="7Ae-Kb-ZtE"/>

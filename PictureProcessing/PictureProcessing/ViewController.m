@@ -42,6 +42,7 @@
 @property (weak, nonatomic) IBOutlet LWImageCropView    *cropView; // 裁剪view
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *brushWidth; // 当前画笔大小
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *brushBottomSpace; // 画笔view距底部距离
+@property (weak, nonatomic) IBOutlet UIButton *cropButton;
 
 @property (nonatomic, strong) UIImage          *originalImage; // 原始图片
 @property (nonatomic, strong) DrawView         *drawView; // 画布viw
@@ -124,11 +125,9 @@
         self.keyboardIsShow = NO;
         self.drawView.userInteractionEnabled = YES;
     }else {
-        self.brushBottomSpace.constant = SCREEN_HEIGHT-endFrame.origin.y;
+        self.brushBottomSpace.constant = SCREEN_HEIGHT-endFrame.origin.y-BOTTOM_HEIGHT;
         self.keyboardIsShow = YES;
         self.drawView.userInteractionEnabled = NO;
-
-
     }
     [UIView animateWithDuration:duration animations:^{
         [UIView setAnimationCurve:curve];
@@ -368,13 +367,13 @@
     if (!self.cropView.isHidden) {
         UIImage *image = [self cropImageFromView:self.originalImage rect:self.cropView.cropAreaInImage];
         self.cropView.hidden = YES;
+        self.cropButton.selected = NO;
         CGFloat superViewWidth = self.editView.frame.size.width;
         CGFloat superViewHeight = self.editView.frame.size.height;
         CGFloat imageWidth = image.size.width;
         CGFloat imageHeight = image.size.height;
         self.imageView.image = image;
         self.imageView.contentMode = UIViewContentModeScaleToFill;
-        self.imageView.backgroundColor = [UIColor redColor];
         CGFloat height = superViewWidth*imageHeight/imageWidth;
         self.imageView.bounds = CGRectMake(0, 0, superViewWidth, height);
         if (height > superViewHeight) {
@@ -417,6 +416,8 @@
 - (IBAction)getPhoto:(UIBarButtonItem *)sender {
     if (self.imageView){
         [MSAlert showAlertWithTitle:@"确定丢弃图片？" message:nil confirmButtonAction:^{
+            self.cropView.hidden = YES;
+            self.cropButton.selected = NO;
             [self.imageView removeFromSuperview];
             [self.drawView removeFromSuperview];
             [self.drawView reset];

@@ -11,4 +11,8 @@
 
 #import "GPUImage.h"
 
+#define IPHONEX (SCREEN_HEIGHT == 812 || SCREEN_HEIGHT == 896)
+#define NAV_HEIGHT (IPHONEX?88:64)
+#define BOTTOM_HEIGHT (IPHONEX?34:0)
+
 #endif /* PictureProcessing_pch */
